@@ -1,7 +1,7 @@
 {
     "id": "wowtelligence",
     "name": "Wowtelligence",
-    "modelProvider": "google",
+    "modelProvider": "grok",
     "clients": ["TWITTER"],
     "settings": {
         "model": "gpt-4-turbo",
