@@ -1,0 +1,19 @@
+{
+    "name": "@wowtelligence-org/client-telegram",
+    "version": "0.0.1",
+    "main": "src/index.ts",
+    "type": "module",
+    "dependencies": {
+        "@telegraf/types": "7.1.0",
+        "@wowtelligence-org/wowtelligence": "workspace:*",
+        "@wowtelligence-org/plugin-node": "workspace:*",
+        "telegraf": "4.16.3"
+    },
+    "devDependencies": {
+        "tsup": "^8.3.5"
+    },
+    "scripts": {
+        "build": "tsup --format esm --dts",
+        "dev": "tsup --watch"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "@wowtelligence-org/plugin-image-generation",
+    "version": "0.0.1",
+    "main": "dist/index.js",
+    "type": "module",
+    "types": "dist/index.d.ts",
+    "dependencies": {
+        "@wowtelligence-org/wowtelligence": "workspace:*",
+        "tsup": "^8.3.5"
+    },
+    "scripts": {
+        "build": "tsup --format esm --dts"
+    },
+    "peerDependencies": {
+        "whatwg-url": "7.1.0"
+    }
+}
