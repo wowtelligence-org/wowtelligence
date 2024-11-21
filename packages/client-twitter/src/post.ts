@@ -6,6 +6,7 @@ import { embeddingZeroVector } from "@wowtelligence-org/wowtelligence/src/memory
 import { IAgentRuntime, ModelClass } from "@wowtelligence-org/wowtelligence";
 import { stringToUuid } from "@wowtelligence-org/wowtelligence/src/uuid.ts";
 import { ClientBase } from "./base.ts";
+import { MAX_TWEET_LENGTH } from "./utils.ts";
 
 const twitterPostTemplate = `{{timeline}}
 
@@ -33,8 +34,8 @@ export class TwitterPostClient extends ClientBase {
             this.generateNewTweet();
             setTimeout(
                 generateNewTweetLoop,
-                (Math.floor(Math.random() * (20 - 15 + 1)) + 15) * 60 * 1000
-            ); // Random interval between 15 and 20 minutes
+                (Math.floor(Math.random() * (2 - 1 + 1)) + 15) * 60 * 60 * 1000
+            ); // Random interval between 1 to 2 hours
         };
         // setTimeout(() => {
         generateNewTweetLoop();
@@ -114,8 +115,8 @@ export class TwitterPostClient extends ClientBase {
             const contentLength = 240;
 
             let content = slice.slice(0, contentLength);
-            // if its bigger than 280, delete the last line
-            if (content.length > 280) {
+            // if its bigger than MAX_TWEET_LENGTH, delete the last line
+            if (content.length > MAX_TWEET_LENGTH) {
                 content = content.slice(0, content.lastIndexOf("\n"));
             }
             if (content.length > contentLength) {

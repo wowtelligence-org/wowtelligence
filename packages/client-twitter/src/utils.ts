@@ -7,7 +7,7 @@ import { stringToUuid } from "@wowtelligence-org/wowtelligence/src/uuid.ts";
 import { ClientBase } from "./base.ts";
 import { wowtelligenceLogger } from "@wowtelligence-org/wowtelligence/src/logger.ts";
 
-const MAX_TWEET_LENGTH = 280; // Updated to Twitter's current character limit
+export const MAX_TWEET_LENGTH = 25_000; // Updated to Twitter's current character limit
 
 export const wait = (minTime: number = 1000, maxTime: number = 3000) => {
     const waitTime =

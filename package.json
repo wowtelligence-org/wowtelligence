@@ -1,7 +1,6 @@
 {
     "name": "wowtelligence",
     "scripts": {
-        "preinstall": "npx only-allow pnpm",
         "build": "bash ./scripts/build.sh",
         "build-docs": "pnpm --dir docs build",
         "start:all": "pnpm --filter \"@wowtelligence-org/agent\" start:all --isRoot",
