@@ -110,24 +110,8 @@ export class TwitterPostClient extends ClientBase {
                 modelClass: ModelClass.SMALL,
             });
 
-            const slice = newTweetContent.replaceAll(/\\n/g, "\n").trim();
+            const content = newTweetContent.replaceAll(/\\n/g, "\n").trim();
 
-            const contentLength = 240;
-
-            let content = slice.slice(0, contentLength);
-            // if its bigger than MAX_TWEET_LENGTH, delete the last line
-            if (content.length > MAX_TWEET_LENGTH) {
-                content = content.slice(0, content.lastIndexOf("\n"));
-            }
-            if (content.length > contentLength) {
-                // slice at the last period
-                content = content.slice(0, content.lastIndexOf("."));
-            }
-
-            // if it's still too long, get the period before the last period
-            if (content.length > contentLength) {
-                content = content.slice(0, content.lastIndexOf("."));
-            }
             try {
                 const result = await this.requestQueue.add(
                     async () => await this.twitterClient.sendTweet(content)
